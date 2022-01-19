@@ -67,8 +67,8 @@ namespace EF_PAMOKA.Controllers
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-              _config["Jwt:Issuer"],
+            var token = new JwtSecurityToken(null,
+              null,
               null,
               expires: DateTime.Now.AddMinutes(120),
               signingCredentials: credentials);
