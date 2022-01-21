@@ -83,8 +83,13 @@ namespace EF_PAMOKA.Controllers
             if (user != null && BCrypt.Net.BCrypt.Verify(login.Slaptazodis, user.Slaptazodis))
             {
                 user = new Vartotojas { Vardas = user.Vardas, Pastas = user.Pastas };
+                return user;
             }
-            return user;
+            else
+            {
+                return null;
+            }
+
         }
 
 

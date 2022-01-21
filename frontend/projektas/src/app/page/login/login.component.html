@@ -1,0 +1,11 @@
+<form [formGroup]="forma">
+
+    <label for="vartotojo-vardas">Vartotojo vardas : </label>
+    <input id="vartotojo-vardas" type="text" formControlName="vardas">
+  
+    <label for="slaptazodis">Slaptazodis : </label>
+    <input id="slaptazodis" type="password" formControlName="slaptazodis">
+
+    <button (click)="prisijungti()" type="submit" [disabled]="!forma.valid">Pateikti</button>
+  
+  </form>
