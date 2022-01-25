@@ -1,1 +1,4 @@
 <button (click)="atsijungti()">Atsijungti</button>
+<div *ngFor="let automobilis of automobiliai">
+    <p>{{ automobilis.marke + " " + automobilis.modelis }}</p>
+</div>

@@ -29,7 +29,24 @@ namespace EF_PAMOKA.Controllers
         [Authorize]
         public List<Automobilis> VisiAutomobiliai()
         {
-            return _dbContext.Automobiliai.Where(x => x.Marke != "kazkas").ToList();
+            var automobiliai = _dbContext.Automobiliai.Where(x => x.Marke != "kazkas").ToList();
+
+            var audi = new Automobilis
+            {
+                Marke = "Audi",
+                Modelis = "100"
+            };
+
+            var bmw = new Automobilis
+            {
+                Marke = "BMW",
+                Modelis = "X6"
+            };
+
+            automobiliai.Add(audi);
+            automobiliai.Add(bmw);
+
+            return automobiliai;
         }
 
         [HttpGet]

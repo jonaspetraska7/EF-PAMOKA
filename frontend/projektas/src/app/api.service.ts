@@ -27,7 +27,7 @@ export class ApiService {
     data.Id = 0
     data.Pastas = ""
 
-    let atsakymasIsServerio = await fetch('https://localhost:44321/login',{
+    let atsakymasIsServerio = await fetch('https://localhost:7065/login',{
       method : 'POST',
       headers : {
         'Accept': 'application/json, text/plain, */*',
@@ -46,7 +46,7 @@ export class ApiService {
       console.log(tokenas)
       this.loggedIn = true;
 
-      this.token = tokenas;
+      this.token = tokenas.token;
       localStorage.setItem('token', this.token)
       
       this.router.navigate(['main'])
@@ -56,7 +56,7 @@ export class ApiService {
   async registruotis(data : any){
     data.Id = 0
 
-    let atsakymasIsServerio = await fetch('https://localhost:44321/register',{
+    let atsakymasIsServerio = await fetch('https://localhost:7065/register',{
       method : 'POST',
       headers : {
         'Accept': 'application/json, text/plain, */*',
@@ -75,7 +75,7 @@ export class ApiService {
       console.log(tokenas)
       this.loggedIn = true;
 
-      this.token = tokenas;
+      this.token = tokenas.token;
       localStorage.setItem('token', this.token)
 
       this.router.navigate(['main'])
